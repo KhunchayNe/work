@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
               /// [Stack More Detail](https://api.flutter.dev/flutter/widgets/Stack-class.html)
               Stack(children: [
             Container(
-                height: MediaQuery.of(context).size.height / 3.5,
+                height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                       end: Alignment.bottomRight),
                 )),
             Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: <Widget>[
                     Center(
@@ -103,5 +103,11 @@ class _HomeState extends State<Home> {
                 ))
           ]),
         ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    ontheload();
   }
 }

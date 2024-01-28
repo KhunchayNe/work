@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:work/page/forgot.dart';
 import 'package:work/page/home.dart';
 import 'package:work/page/register.dart';
 import 'package:work/service/database.dart';
@@ -187,16 +188,35 @@ class _LoginState extends State<Login> {
                               SizedBox(
                                 height: 10.0,
                               ),
-                              Container(
-                                alignment: Alignment.bottomRight,
-                                child: Text(
-                                  "Forgot Password?",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    // Navigate to ForgotPasswordPage when "Forgot Password" is clicked
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Forgot()),
+                                    );
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.bottomRight,
+                                    child: Text(
+                                      'Forgot Password?',
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  )),
+                              // Container(
+                              //   alignment: Alignment.bottomRight,
+                              //   child: [Text(
+                              //     "Forgot Password?",
+                              //     style: TextStyle(
+                              //         color: Colors.black,
+                              //         fontSize: 16.0,
+                              //         fontWeight: FontWeight.w500),
+                              //   ),]
+                              // ),
                               SizedBox(
                                 height: 50.0,
                               ),
@@ -208,6 +228,10 @@ class _LoginState extends State<Login> {
                                       password = userpasswordcontroller.text;
                                     });
                                   }
+                                  setState(() {
+                                    email = 'work.siwapun.kh@gmail.com';
+                                    password = '123456';
+                                  });
                                   userLogin();
                                 },
                                 child: Center(
